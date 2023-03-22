@@ -1,0 +1,22 @@
+[GLOBAL]
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.mixed_interpreter_constraints",
+  "pants.backend.python.lint.isort",
+]
+pants_version = "2.15.0"
+
+[anonymous-telemetry]
+enabled = false
+
+[python]
+default_resolve = "py38"
+enable_resolves = true
+interpreter_constraints = [">=3.8"]
+
+[python.resolves]
+py310 = "build_support/lockfiles/py310.txt"
+py38 = "build_support/lockfiles/py38.txt"
+
+[python.resolves_to_interpreter_constraints]
+py310 = [">=3.10"]
